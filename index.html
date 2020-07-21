@@ -86,11 +86,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="简单算法题"><a href="#简单算法题" class="headerlink" title="简单算法题"></a>简单算法题</h2><h3 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h3><p>　　给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。示例：给定nums=[2,7,11,15],target=9;因为nums[0]+nums[1]=2+7=9=target,所以返回[0,1]。  </p>
+<p><strong>解题思路</strong>：可以通过循环来解决这个问题，需要使用双层循环，外层循环负责得到目标值与数组内的值之差，内层循环负责在数组中寻找到这个差，如果找到，就输出这两个索引，如全都未搜索到，则打印数组中不存在两个数相加等于目标值。<br>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] nums = &#123;<span class="number">2</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">15</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> target = <span class="number">9</span>;</span><br><span class="line">        <span class="keyword">boolean</span> isFind = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; nums.length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>((target-nums[i])==nums[j])&#123;</span><br><span class="line">                    System.out.println(<span class="string">"["</span>+i+<span class="string">","</span>+j+<span class="string">"]"</span>);</span><br><span class="line">                    isFind = <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!isFind)&#123;</span><br><span class="line">            System.out.println(<span class="string">"抱歉，没有找到！"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：<em>初步疑惑</em>：如果能找到值还好说，直接输出结果，如果没有找到呢，如何确保是找完了数组所有的值还是没有找到那个差呢？  简单一点说，就是找到了也应该退出，没有找到也会自然退出，怎么判断是哪种退出呢？<em>解决方案</em>：通过定义一个布尔类型的值，初始为false，如果找到了，就将其改为true。</p>
+<h3 id="2-反转整数"><a href="#2-反转整数" class="headerlink" title="2.反转整数"></a>2.反转整数</h3><p>　　给定一个32位有符号的整数，将整数中的数字进行反转。示例1：输入：123　输出：321　　示例2：输入：-123　输出：-321　　示例3：输入：120　输出：21<br>注意：假设我们的环境只能存储32位有符号的整数，其数值范围是（-2e31——2e31）。根据这个假设，如果反转后的整数溢出，则返回零。  </p>
+<p><strong>解题思路</strong>：首先理解一下一个带符号的32位整数，······算了，暂时没有思路，看看答案吧！<br>代码如下：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> rev = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x!=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> pop = x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span>(rev &gt; Integer.MAX_VALUE/<span class="number">10</span> || (rev == Integer.MAX_VALUE/<span class="number">10</span> &amp;&amp; pop &gt; <span class="number">7</span>)) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(rev &gt; Integer.MIN_VALUE/<span class="number">10</span> || (rev == Integer.MIN_VALUE/<span class="number">10</span> &amp;&amp; pop &lt; -<span class="number">8</span>)) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            rev = rev * <span class="number">10</span> + pop;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看起来代码还挺简洁的，难点应该就在Integer.MAX_VALUE和Integer.MIN_VALUE上，来看看答案的思路吧！（看到答案的Integer.MAX_VALUE突然想起，整型int好像就是四个字节，32位有符号数字，好巧！！！不对，应该不是巧合，而是有意为之。）<br><strong>答案思路解析</strong>：首先对于给定的数x，不能为零，然后进入循环。第一步，将给定的数x对10取余，保存为pop。第二步，将x除以10，赋值给自身。第三步，判断int最大值除以10是否大于0，或者int最大值除以10是否等于0并且pop大于7，如果判断为真，就返回0，也就意味着当前x的反转整数溢出。第四步，判断int最小值除以10是否大于0，或者int最小值除以10等于0并且pop小于-8，如果条件为真，同样返回值为零。第五步，将rev乘以10再加上pop，并赋值给rev。再次循环，循环结束条件为x == 0，此时将返回rev，或者两个条件满足其中的一个，此时返回0。（好吧，我就是将代码翻译成了句子而已，还是不理解逻辑，只能采用最厉害的一招了，查查百度Integer.MAX_VALUE和Integer.MIN__VALUE是什么意思吧！）  </p>
+<h3 id="3-回文数"><a href="#3-回文数" class="headerlink" title="3.回文数"></a>3.回文数</h3><p>　　判断一个整数是不是回文数。回文数是指正序（从左往右）和倒序（从右往左）读都是一样的整数。示例1：输入：121　输出：true　　示例2：输入：-121　输出：false （解释：这个数从左往右读是-121，而从右往左读是121-。因此，它不是一个回文数。）　　示例3：输入：10　输出：false （解释：从左往右读是10，而从右往左读是01，并不相等，不是回文数。）<br>　　进阶：你能不将整数转为字符串来解决这个问题吗？<br><strong>解题思路</strong>：其实看到进阶题，我才幡然醒悟，原来是用字符串来做的（原来我之前做的太复杂了，还是通过求余和求商来算的，还得考虑它是几位数，唉，现在想想真是，唉，慢慢进步吧！）。这不是此地无银三百两吗。好吧，那就以字符串的形式来做这个算法题。首先，将提供的整数用toString转换成字符串，再通过字符串反转，比较其结果就行了。进阶题的话，暂时还没想到好办法。明天继续···</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/19/LeetCode%E7%AE%97%E6%B3%95%E9%A2%98%E6%80%9D%E8%B7%AF/" data-id="ckcsic4r80000tgo0g2lu7drw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/19/LeetCode%E7%AE%97%E6%B3%95%E9%A2%98%E6%80%9D%E8%B7%AF/" data-id="ckcvro2bv0000f4o0do15dm0y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -126,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/19/Python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" data-id="ckcsic4rh0001tgo0dnwi9ykf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/19/Python%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" data-id="ckcvro2d20002f4o0h5ijfd9s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -162,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/18/Python%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" data-id="ckcsbily3000194o0gevig43c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/18/Python%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" data-id="ckcvro2cp0001f4o0dq40c7fx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -236,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/07/Java%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" data-id="ckcroj4uy00007so0dxftcutd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/07/Java%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" data-id="ckcvro2e40003f4o0dwhlfc4q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%8B%E9%9D%A2%E4%BB%8B%E7%BB%8DJava%E8%BF%99%E9%97%A8%E8%AF%AD%E8%A8%80%E7%9A%84%E8%AF%9E%E7%94%9F%EF%BC%8C%E4%BB%A5%E5%8F%8A%E9%9A%8F%E5%90%8E%E7%9A%84%E5%8F%91%E5%B1%95%EF%BC%8C%E6%9C%80%E5%90%8E%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%AA%E5%85%A5%E9%97%A8%E5%BF%85%E5%AD%A6%E7%9A%84%E7%A8%8B%E5%BA%8FHelloWorld/" rel="tag">下面介绍Java这门语言的诞生，以及随后的发展，最后介绍一个入门必学的程序HelloWorld</a></li></ul>
@@ -287,7 +296,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/07/hello-world/" data-id="ckcroj4wj00037so09aah3gnv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/07/hello-world/" data-id="ckcvro2f50006f4o09mq108ny" class="article-share-link">Share</a>
       
       
     </footer>
